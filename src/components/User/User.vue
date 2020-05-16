@@ -244,8 +244,6 @@
         height: height,
         useCORS: true
       };
-
-
       /**
        * 解决html2Canvas在IOS13.4中失效问题
        */
@@ -256,44 +254,7 @@
         .catch(err => {
           alert(err)
         });
-
-      // html2canvas(shareContent, opts).then(function(canvas) {
-      //   that.qrContentImage = canvas.toDataURL("image/jpeg", 1.0);
-      // }).catch(function (reason) {
-      //
-      // });
-
-
-
-
     },
-    createImg() {
-      const that = this
-      const shareContent = this.$refs.QrcodePage //需要截图的包裹的（原生的）DOM 对象
-      const width = shareContent.clientWidth //shareContent.offsetWidth; //获取dom 宽度
-      const height = shareContent.clientHeight //shareContent.offsetHeight; //获取dom 高度
-      const canvas = document.createElement("canvas") //创建一个canvas节点
-      const scale = 1; //定义任意放大倍数 支持小数
-      canvas.width = width * scale; //定义canvas 宽度 * 缩放
-      canvas.height = height * scale; //定义canvas高度 *缩放
-      canvas.style.width = (shareContent.clientWidth * scale) / 100 + "rem";
-      canvas.style.height = (shareContent.clientHeight * scale) / 100 + "rem";
-      canvas.getContext("2d").scale(scale, scale); //获取context,设置scale
-      let opts = {
-        scale: scale, // 添加的scale 参数
-        canvas: canvas, //自定义 canvas
-        logging: false, //日志开关，便于查看html2canvas的内部执行流程
-        width: width, //dom 原始宽度
-        height: height,
-        useCORS: true
-      };
-      html2canvas(shareContent, opts).then(function(canvas) {
-        that.qrContentImage = canvas.toDataURL("image/jpeg", 1.0);
-      }).catch(function (reason) {
-        alert(reason)
-      });
-    },
-
     checkres(){
       this.$router.push({path:"/register"})
     },

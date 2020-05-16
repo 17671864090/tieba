@@ -13,7 +13,6 @@
     "@xkeshi/vue-qrcode": "xkeshi/vue-qrcode",
     "axios": "^0.16.1",
     "element-ui": "^2.13.1",
-    "html2canvas": "^1.0.0-rc.5",
     "moment": "^2.18.1",
     "node-sass": "^4.5.2",
     "sass": "^0.5.0",
