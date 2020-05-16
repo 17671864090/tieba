@@ -308,6 +308,7 @@
     showPopup() {
       if(localStorage.getItem("UserInfoTokenn")){
         localStorage.removeItem("UserInfoTokenn")
+        localStorage.removeItem("userinfo")
         this.$router.go(0)
       }else{
         this.show = true;
