@@ -106,7 +106,7 @@
             <div class="avatar" style="background-color: white;margin: 10px 0;padding: 0 10px" v-for="item in subordinate" :key="item.index" v-if="item.status != 1">
               <div class="right" style="padding-top: 8px">
                 <div class="listType" style="color: #159bff;padding-right: 10px;font-size: 14px;line-height: 30px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{item.tbk_user_Username}}</div>
-                <div class="c888 f12 little-infor" style="font-size: 0.32rem; color: rgb(153, 153, 153);line-height: 40px">
+                <div class="c888 f12 little-infor" style="font-size: 12px; color: rgb(153, 153, 153);line-height: 40px">
 
                   <span>邀请时间{{item.Registrationdate}}</span>
 
@@ -244,11 +244,28 @@
         height: height,
         useCORS: true
       };
-      html2canvas(shareContent, opts).then(function(canvas) {
-        that.qrContentImage = canvas.toDataURL("image/jpeg", 1.0);
-      }).catch(function (reason) {
-        alert(reason)
-      });
+
+
+      /**
+       * 解决html2Canvas在IOS13.4中失效问题
+       */
+      (window.html2canvas || html2canvas)(shareContent, opts)
+        .then(canvas => {
+          that.qrContentImage = canvas.toDataURL("image/jpeg", 1.0);
+        })
+        .catch(err => {
+          alert(err)
+        });
+
+      // html2canvas(shareContent, opts).then(function(canvas) {
+      //   that.qrContentImage = canvas.toDataURL("image/jpeg", 1.0);
+      // }).catch(function (reason) {
+      //
+      // });
+
+
+
+
     },
     createImg() {
       const that = this

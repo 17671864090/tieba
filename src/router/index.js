@@ -35,6 +35,9 @@ const router = new Router({
       path: '/release',
       name: 'release',
       component: Release,
+      meta:{
+        requiresAuth:true
+      }
     },
     //开通会员
     {
