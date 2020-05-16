@@ -197,8 +197,8 @@
       ],
       chosenAddressId: '1',
       Withdrawal:{
-        name:'阚东',
-        account:'53746237@aliyun.com'
+        name:'',
+        account:''
       },
       qrContentImage:'',
       Qrcodeinvitationidshow:false,
